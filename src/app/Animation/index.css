@@ -1,0 +1,9 @@
+.animation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f00;
+    width: 50vw;
+    height: 50vw;
+}

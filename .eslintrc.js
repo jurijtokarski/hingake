@@ -23,20 +23,14 @@ module.exports = {
     },
     rules: {
         "react/no-unknown-property": ["error", { ignore: ["class"] }],
-        "@typescript-eslint/interface-name-prefix": "off"
+        "react/prop-types": "off",
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
     },
     settings: {
         react: {
             pragma: "h",
             version: "detect"
         },
-    },
-    overrides: [
-        {
-            files: ["*.js"],
-            rules: {
-                "@typescript-eslint/explicit-function-return-type": "off",
-            }
-        }
-    ]
+    }
 };
