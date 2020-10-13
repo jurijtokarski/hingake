@@ -1,19 +1,19 @@
 {
-  "name": "breath",
-  "short_name": "breath",
+  "name": "Hingake",
+  "short_name": "Hingake",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#fff",
-  "theme_color": "#673ab8",
+  "background_color": "#67e7f3",
+  "theme_color": "#67e7f3",
   "icons": [
     {
-      "src": "/assets/icons/android-chrome-192x192.png",
+      "src": "/assets/icons/circle.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/assets/icons/android-chrome-512x512.png",
+      "src": "/assets/icons/circle.png",
       "type": "image/png",
       "sizes": "512x512"
     }

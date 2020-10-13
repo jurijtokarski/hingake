@@ -6,20 +6,21 @@ import { getScaleByStepProgress } from "../utils";
 
 import "./index.css";
 
-const Animation: FunctionComponent = () => {
+const Button: FunctionComponent = () => {
   const { isActive, step, progress, start, stop } = useContext(Context);
 
-  const size = `${(getScaleByStepProgress(step, progress) + 1) * 7}rem`;
-
   const style = {
-    width: size,
-    height: size
+    transform: `scale(${getScaleByStepProgress(step, progress) + 1})`
   };
 
   const onClick = isActive ? stop : start;
   const label = isActive ? "Stop" : "Start";
 
-  return <div className="animation" style={style} />;
+  return (
+    <button className="button" onClick={onClick}>
+      {label}
+    </button>
+  );
 };
 
-export default Animation;
+export default Button;

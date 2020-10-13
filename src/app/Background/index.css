@@ -3,10 +3,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #f0f0f0;
   width: 100%;
   height: 100%;
-  background-image: url(/assets/daniele-levis-pelusi-mkMSXR86kYY-unsplash.jpg);
+  background-image: url(/assets/background-4.png);
   background-position: center;
   background-repeat: no-repeat;
 }

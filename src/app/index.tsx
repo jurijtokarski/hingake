@@ -1,4 +1,4 @@
-import { Component, h } from "preact";
+import { Component, Fragment, h } from "preact";
 
 import {
   DEFAULT_CONTEXT_VALUES,
@@ -7,8 +7,13 @@ import {
   Step,
   AppContext
 } from "./context";
+
 import Background from "./Background";
 import Animation from "./Animation";
+import Timer from "./Timer";
+import Button from "./Button";
+import Header from "./Header";
+import Content from "./Content";
 
 class App extends Component<{}, AppContext> {
   private __mounted = false;
@@ -105,7 +110,16 @@ class App extends Component<{}, AppContext> {
     return (
       <Context.Provider value={this.state}>
         <Background>
-          <Animation />
+          <Fragment>
+            <Header />
+            <Content>
+              <Fragment>
+                <Timer />
+                <Animation />
+                <Button />
+              </Fragment>
+            </Content>
+          </Fragment>
         </Background>
       </Context.Provider>
     );

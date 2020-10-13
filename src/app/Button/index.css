@@ -1,0 +1,22 @@
+.button {
+  background: #fff;
+  width: 5rem;
+  height: 3rem;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  outline: none;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.button:hover {
+  box-shadow: -3rem -3rem 4rem #6dccd5, 3rem 3rem 4rem #93ffff;
+  opacity: 0.8;
+}
+
+.button:focus {
+  opacity: 0.9;
+  box-shadow: -2rem -2rem 3rem #5aa8b0, 2rem 2rem 3rem #a6ffff;
+}
