@@ -1,4 +1,18 @@
 .animation {
   background: #fff;
   border-radius: 50%;
+  box-shadow: 0rem -5rem 10rem 3rem #514a9d;
+  transition-property: opacity, transform;
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.17, 0.67, 0.16, 1.2);
+}
+
+.animation--hidden {
+  opacity: 0;
+  transform: translateY(100%) scale(0.5);
+}
+
+.animation--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }

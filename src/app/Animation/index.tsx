@@ -1,5 +1,5 @@
-import { FunctionComponent, h, Fragment } from "preact";
-import { useContext } from "preact/hooks";
+import { FunctionComponent, h } from "preact";
+import { useContext, useEffect, useState } from "preact/hooks";
 
 import { Context } from "../context";
 import { getScaleByStepProgress } from "../utils";
@@ -7,7 +7,12 @@ import { getScaleByStepProgress } from "../utils";
 import "./index.css";
 
 const Animation: FunctionComponent = () => {
-  const { isActive, step, progress, start, stop } = useContext(Context);
+  const { step, progress } = useContext(Context);
+  const [isVisible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setVisible(true), 100);
+  }, []);
 
   const size = `${(getScaleByStepProgress(step, progress) + 1) * 7}rem`;
 
@@ -16,10 +21,14 @@ const Animation: FunctionComponent = () => {
     height: size
   };
 
-  const onClick = isActive ? stop : start;
-  const label = isActive ? "Stop" : "Start";
-
-  return <div className="animation" style={style} />;
+  return (
+    <div
+      className={`animation ${
+        isVisible ? "animation--visible" : "animation--hidden"
+      }`}
+      style={style}
+    />
+  );
 };
 
 export default Animation;

@@ -20,11 +20,7 @@ const Background: FunctionComponent<BackgroundProps> = ({ children }) => {
     backgroundSize: `${backgroundSize} ${backgroundSize}`
   };
 
-  return (
-    <div className="background" style={style}>
-      {children}
-    </div>
-  );
+  return <div className="background">{children}</div>;
 };
 
 export default Background;

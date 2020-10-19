@@ -4,16 +4,16 @@
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#67e7f3",
-  "theme_color": "#67e7f3",
+  "background_color": "#514A9D",
+  "theme_color": "#514A9D",
   "icons": [
     {
-      "src": "/assets/icons/circle.png",
+      "src": "/assets/icons/192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/assets/icons/circle.png",
+      "src": "/assets/icons/512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

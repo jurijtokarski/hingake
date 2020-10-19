@@ -1,22 +1,26 @@
 .button {
-  background: #fff;
-  width: 5rem;
-  height: 3rem;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 1rem;
-  font-size: 0.8rem;
-  font-weight: 500;
+  background: transparent;
+  color: #fff;
   outline: none;
-  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.button:hover {
-  box-shadow: -3rem -3rem 4rem #6dccd5, 3rem 3rem 4rem #93ffff;
-  opacity: 0.8;
-}
-
-.button:focus {
+  padding: 0;
   opacity: 0.9;
-  box-shadow: -2rem -2rem 3rem #5aa8b0, 2rem 2rem 3rem #a6ffff;
+  font-size: 0.9rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  border: none;
+  border-radius: 50%;
+  font-weight: 800;
+  transition-property: all;
+  transition-duration: 0.7s;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.button--hidden {
+  opacity: 0;
+  transform: translateY(100%) scale(0.8);
+}
+
+.button--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }

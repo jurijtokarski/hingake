@@ -1,23 +1,28 @@
-import { FunctionComponent, h, Fragment } from "preact";
-import { useContext } from "preact/hooks";
+import { FunctionComponent, h } from "preact";
+import { useContext, useEffect, useState } from "preact/hooks";
 
 import { Context } from "../context";
-import { getScaleByStepProgress } from "../utils";
 
 import "./index.css";
 
 const Button: FunctionComponent = () => {
-  const { isActive, step, progress, start, stop } = useContext(Context);
+  const { isActive, start, stop } = useContext(Context);
+  const [isVisible, setVisible] = useState(false);
 
-  const style = {
-    transform: `scale(${getScaleByStepProgress(step, progress) + 1})`
-  };
+  useEffect(() => {
+    setTimeout(() => setVisible(true), 200);
+  }, []);
 
   const onClick = isActive ? stop : start;
   const label = isActive ? "Stop" : "Start";
 
   return (
-    <button className="button" onClick={onClick}>
+    <button
+      className={`button ${isVisible ? "button--visible" : "button--hidden"} ${
+        isActive ? "button--active" : "button--inactive"
+      }`}
+      onClick={onClick}
+    >
       {label}
     </button>
   );

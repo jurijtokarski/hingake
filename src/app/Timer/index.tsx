@@ -1,5 +1,5 @@
 import { FunctionComponent, h } from "preact";
-import { useContext } from "preact/hooks";
+import { useContext, useState, useEffect } from "preact/hooks";
 
 import { Context } from "../context";
 
@@ -15,15 +15,26 @@ function formatTime(seconds: number) {
 }
 
 const Timer: FunctionComponent = () => {
-  const { isActive, step, progress, start, stop, activationTime } = useContext(
-    Context
-  );
+  const { isActive, activationTime } = useContext(Context);
+  const [isVisible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setVisible(true), 100);
+  }, []);
 
   const seconds = activationTime
     ? Number(((Date.now() - activationTime) / 1000).toFixed(0))
     : 0;
 
-  return <div className="timer">{formatTime(seconds)}</div>;
+  return (
+    <div
+      className={`timer ${isVisible ? "timer--visible" : "timer--hidden"} ${
+        isActive ? "timer--active" : "timer--inactive"
+      }`}
+    >
+      {formatTime(seconds)}
+    </div>
+  );
 };
 
 export default Timer;
