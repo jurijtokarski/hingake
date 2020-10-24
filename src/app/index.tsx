@@ -14,6 +14,7 @@ import Timer from "./Timer";
 import Button from "./Button";
 import Header from "./Header";
 import Content from "./Content";
+import Meta from "./Meta";
 
 class App extends Component<{}, AppContext> {
   private __mounted = false;
@@ -109,6 +110,7 @@ class App extends Component<{}, AppContext> {
   render() {
     return (
       <Context.Provider value={this.state}>
+        <Meta />
         <Background>
           <Fragment>
             <Header />
