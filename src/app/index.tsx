@@ -119,6 +119,10 @@ class App extends Component<{}, AppContext> {
       : timeDiffInSeconds / stepTimeInSeconds;
     const frame = shouldChangeStep ? 0 : this.state.frame + 1;
 
+    if (shouldChangeStep) {
+      this.handleStepChange(step);
+    }
+
     this.setState(
       {
         step,
@@ -128,6 +132,10 @@ class App extends Component<{}, AppContext> {
       },
       this.nextFrame
     );
+  };
+
+  handleStepChange = (newStep?: Step) => {
+    window.navigator?.vibrate(50);
   };
 
   render() {

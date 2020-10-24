@@ -1,4 +1,5 @@
 import { FunctionComponent } from "preact";
+
 import "./index.css";
 
 const Header: FunctionComponent = () => {
