@@ -10,9 +10,21 @@
   border: none;
   border-radius: 50%;
   font-weight: 800;
-  transition-property: opacity, transform;
+  transition-property: opacity, transform, background;
   transition-duration: 0.7s;
   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.button:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+  animation: activation 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .button--hidden {
@@ -23,4 +35,13 @@
 .button--visible {
   opacity: 1;
   transform: translateY(0) scale(1);
+}
+
+@keyframes activation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
 }
