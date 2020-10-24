@@ -31,13 +31,36 @@ class App extends Component<{}, AppContext> {
 
   componentDidMount() {
     this.__mounted = true;
+    this.initializeKeyPress();
   }
 
   componentWillUnmount() {
     this.__mounted = false;
+    this.deinitializeKeyPress();
   }
 
   isMounted = () => this.__mounted;
+
+  initializeKeyPress = () => {
+    document.addEventListener("keypress", this.handleKeypress);
+  };
+
+  deinitializeKeyPress = () => {
+    document.removeEventListener("keypress", this.handleKeypress);
+  };
+
+  handleKeypress = (e: KeyboardEvent) => {
+    if (e.which !== 32) {
+      // 32 is space
+      return;
+    }
+
+    if (this.state.isActive) {
+      return this.handleStop();
+    }
+
+    return this.handleStart();
+  };
 
   requestAnimationFrame = (fn: FrameRequestCallback) =>
     window.requestAnimationFrame(fn) || setTimeout(fn, 1000 / 60);
