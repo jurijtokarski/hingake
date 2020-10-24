@@ -1,3 +1,4 @@
+import { round } from "@jurijtokarski/calc";
 import { Step } from "./context";
 
 export function easeInQuad(x: number): number {

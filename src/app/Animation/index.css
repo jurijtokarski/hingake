@@ -1,7 +1,5 @@
 .animation {
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0rem -5rem 10rem 3rem #514a9d;
+  filter: drop-shadow(0rem -2rem 7rem #514a9d);
   transition-property: opacity, transform;
   transition-duration: 0.4s;
   transition-timing-function: cubic-bezier(0.17, 0.67, 0.16, 1.2);
@@ -15,4 +13,30 @@
 .animation--visible {
   opacity: 1;
   transform: translateY(0) scale(1);
+}
+
+.animation--active {
+  animation: opacityChange 3s ease-in-out infinite;
+}
+
+.animation--inactive {
+  transition-property: width, height;
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.17, 0.67, 0.16, 1.2);
+}
+
+.animation path {
+  fill: rgba(255, 255, 255, 0.35);
+}
+
+@keyframes opacityChange {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
 }
