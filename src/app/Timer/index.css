@@ -1,8 +1,8 @@
 .timer {
   color: #fff;
   font-size: 1rem;
-  height: 1.5rem;
-  line-height: 1.5rem;
+  height: 3.2rem;
+  line-height: 3.2rem;
   transition-property: opacity, transform, visibility;
   transition-duration: 0.8s;
   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
