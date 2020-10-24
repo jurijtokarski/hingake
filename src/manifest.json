@@ -1,7 +1,7 @@
 {
   "name": "Hingake",
   "short_name": "Hingake",
-  "start_url": "/",
+  "start_url": "/?source=pwa",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#514A9D",

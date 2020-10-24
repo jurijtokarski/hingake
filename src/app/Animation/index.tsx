@@ -1,3 +1,4 @@
+import { round } from "@jurijtokarski/calc";
 import { FunctionComponent, h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
 
@@ -14,7 +15,8 @@ const Animation: FunctionComponent = () => {
     setTimeout(() => setVisible(true), 100);
   }, []);
 
-  const size = `${(getScaleByStepProgress(step, progress) + 0.5) * 10}rem`;
+  const scale = round((getScaleByStepProgress(step, progress) + 1.5) * 7, 4);
+  const size = `${scale}rem`;
 
   const style = {
     width: size,

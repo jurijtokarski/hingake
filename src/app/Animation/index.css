@@ -1,5 +1,4 @@
 .animation {
-  filter: drop-shadow(0rem -2rem 7rem #514a9d);
   transition-property: opacity, transform;
   transition-duration: 0.4s;
   transition-timing-function: cubic-bezier(0.17, 0.67, 0.16, 1.2);
@@ -16,7 +15,7 @@
 }
 
 .animation--active {
-  animation: opacityChange 3s ease-in-out infinite;
+  animation: opacityChange 4s ease-in-out infinite;
 }
 
 .animation--inactive {
