@@ -18,6 +18,7 @@ import Meta from "./Meta";
 
 class App extends Component<{}, AppContext> {
   private __mounted = false;
+  private __wakeLock = null;
 
   constructor() {
     super();
@@ -65,9 +66,12 @@ class App extends Component<{}, AppContext> {
   requestAnimationFrame = (fn: FrameRequestCallback) =>
     window.requestAnimationFrame(fn) || setTimeout(fn, 1000 / 60);
 
-  handleStop = () => this.setState(DEFAULT_CONTEXT_VALUES);
+  handleStop = () => {
+    this.setState(DEFAULT_CONTEXT_VALUES);
+    this.releaseWakeLock();
+  };
 
-  handleStart = () =>
+  handleStart = () => {
     this.setState(
       {
         isActive: true,
@@ -75,6 +79,38 @@ class App extends Component<{}, AppContext> {
       },
       this.nextFrame
     );
+    this.initWakeLock();
+  };
+
+  initWakeLock = async () => {
+    // @todo: remove @ts-ignore: wakeLock is a new API and now doesn't present in lib.dom.d.ts)
+
+    if ("wakeLock" in navigator) {
+      try {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore
+        this.__wakeLock = await window.navigator.wakeLock?.request("screen");
+      } catch {
+        this.__wakeLock = null;
+      }
+    }
+  };
+
+  releaseWakeLock = () => {
+    // @todo: remove @ts-ignore: wakeLock is a new API and now doesn't present in lib.dom.d.ts)
+
+    if (this.__wakeLock) {
+      try {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore
+        this.__wakeLock.release().then(() => {
+          this.__wakeLock = null;
+        });
+      } catch {
+        this.__wakeLock = null;
+      }
+    }
+  };
 
   nextFrame = () => this.requestAnimationFrame(this.checkFrame);
 
@@ -120,7 +156,7 @@ class App extends Component<{}, AppContext> {
     const frame = shouldChangeStep ? 0 : this.state.frame + 1;
 
     if (shouldChangeStep) {
-      this.handleStepChange(step);
+      this.handleStepChange();
     }
 
     this.setState(
@@ -134,8 +170,10 @@ class App extends Component<{}, AppContext> {
     );
   };
 
-  handleStepChange = (newStep?: Step) => {
-    window.navigator?.vibrate(50);
+  handleStepChange = () => {
+    if ("vibrate" in navigator) {
+      window.navigator.vibrate(50);
+    }
   };
 
   render() {
