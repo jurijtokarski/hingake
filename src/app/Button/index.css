@@ -10,7 +10,7 @@
   border: none;
   border-radius: 50%;
   font-weight: 800;
-  transition-property: all;
+  transition-property: opacity, transform;
   transition-duration: 0.7s;
   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
 }
