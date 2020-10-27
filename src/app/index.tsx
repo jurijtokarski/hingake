@@ -5,12 +5,14 @@ import {
   Context,
   ModeConfig,
   Step,
-  AppContext
+  AppContext,
+  State,
+  PRE_ACTIVE_DELAY
 } from "./context";
 
 import Background from "./Background";
 import Animation from "./Animation";
-import Timer from "./Timer";
+import Info from "./Info";
 import Button from "./Button";
 import Header from "./Header";
 import Content from "./Content";
@@ -56,7 +58,7 @@ class App extends Component<{}, AppContext> {
       return;
     }
 
-    if (this.state.isActive) {
+    if (this.state.state === State.ACTIVE) {
       return this.handleStop();
     }
 
@@ -67,20 +69,31 @@ class App extends Component<{}, AppContext> {
     window.requestAnimationFrame(fn) || setTimeout(fn, 1000 / 60);
 
   handleStop = () => {
-    this.setState(DEFAULT_CONTEXT_VALUES);
+    this.setState({
+      ...DEFAULT_CONTEXT_VALUES,
+      state: State.POST_ACTIVE,
+      activationTime: this.state.activationTime
+    });
     this.releaseWakeLock();
   };
 
-  handleStart = () => {
+  handleStart = () =>
     this.setState(
       {
-        isActive: true,
-        activationTime: Date.now()
+        state: State.PRE_ACTIVE
       },
-      this.nextFrame
+      () =>
+        setTimeout(() => {
+          this.setState(
+            {
+              state: State.ACTIVE,
+              activationTime: Date.now()
+            },
+            this.nextFrame
+          );
+          this.initWakeLock();
+        }, PRE_ACTIVE_DELAY)
     );
-    this.initWakeLock();
-  };
 
   initWakeLock = async () => {
     // @todo: remove @ts-ignore: wakeLock is a new API and now doesn't present in lib.dom.d.ts)
@@ -115,7 +128,9 @@ class App extends Component<{}, AppContext> {
   nextFrame = () => this.requestAnimationFrame(this.checkFrame);
 
   isPossibleToUpdateFrame = () =>
-    this.isMounted() && this.state.isActive && this.state.activationTime > 0;
+    this.isMounted() &&
+    this.state.state === State.ACTIVE &&
+    this.state.activationTime > 0;
 
   getNextStepFromCurrent = () => {
     const { step } = this.state;
@@ -185,7 +200,7 @@ class App extends Component<{}, AppContext> {
             <Header />
             <Content>
               <Fragment>
-                <Timer />
+                <Info />
                 <Animation />
                 <Button />
               </Fragment>

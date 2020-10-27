@@ -2,30 +2,23 @@ import { FunctionComponent, h } from "preact";
 import { useContext } from "preact/hooks";
 import Helmet from "react-helmet";
 
-import { Context, Step } from "../context";
+import { Context, State, Step } from "../context";
+import { getTitleByStep } from "../utils";
 
 const getTitle = (isActive: boolean, step: Step) => {
   if (!isActive) {
     return "Hingake";
   }
 
-  if (step === Step.INHALE) {
-    return "Inhale…";
-  }
-
-  if (step === Step.EXHALE) {
-    return "Exhale…";
-  }
-
-  return "Wait…";
+  return getTitleByStep(step);
 };
 
 const Meta: FunctionComponent = () => {
-  const { isActive, step } = useContext(Context);
+  const { state, step } = useContext(Context);
 
   return (
     <Helmet>
-      <title>{getTitle(isActive, step)}</title>
+      <title>{getTitle(state === State.ACTIVE, step)}</title>
     </Helmet>
   );
 };

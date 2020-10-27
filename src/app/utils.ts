@@ -35,3 +35,15 @@ export const isIOS = () => /iphone|ipad|ipod/.test(getUserAgent());
 
 export const isInStandaloneMode = () =>
   getLocationQueryParams().source === "pwa";
+
+export const getTitleByStep = (step: Step) => {
+  if (step === Step.INHALE) {
+    return "Inhale…";
+  }
+
+  if (step === Step.EXHALE) {
+    return "Exhale…";
+  }
+
+  return "Wait…";
+};

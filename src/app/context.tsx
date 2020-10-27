@@ -27,11 +27,20 @@ export const ModeConfig = {
   }
 } as const;
 
+export const PRE_ACTIVE_DELAY = 1000;
+
+export enum State {
+  INIT = "INIT",
+  PRE_ACTIVE = "PRE_ACTIVE",
+  ACTIVE = "ACTIVE",
+  POST_ACTIVE = "POST_ACTIVE"
+}
+
 export const DEFAULT_CONTEXT_VALUES = {
   mode: Mode.RELAX,
-  isActive: false,
-  activationTime: 0,
   step: Step.PAUSE,
+  state: State.INIT,
+  activationTime: 0,
   frame: 0,
   progress: 0,
   startTime: 0

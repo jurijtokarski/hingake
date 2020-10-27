@@ -36,6 +36,7 @@
   transform: translateY(0) scale(1);
 }
 
+.button--pre_active,
 .button--active {
   background-color: rgba(0, 0, 0, 0.05);
 }

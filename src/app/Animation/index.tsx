@@ -8,7 +8,7 @@ import { getScaleByStepProgress } from "../utils";
 import "./index.css";
 
 const Animation: FunctionComponent = () => {
-  const { step, progress, isActive } = useContext(Context);
+  const { step, progress, state } = useContext(Context);
   const [isVisible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -32,9 +32,9 @@ const Animation: FunctionComponent = () => {
   return (
     <svg
       viewBox="0 0 100 100"
-      className={`animation ${
+      className={`animation animation--${state.toLowerCase()} ${
         isVisible ? "animation--visible" : "animation--hidden"
-      } ${isActive ? "animation--active" : "animation--inactive"}`}
+      }`}
       style={style}
     >
       <defs>
