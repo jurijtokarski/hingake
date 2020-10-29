@@ -10,14 +10,14 @@ import {
   PRE_ACTIVE_DELAY
 } from "./context";
 
+import { getRunCount, setRunCount } from "./utils";
+
 import Background from "./Background";
 import Animation from "./Animation";
 import Info from "./Info";
 import Button from "./Button";
 import Header from "./Header";
 import Content from "./Content";
-import Meta from "./Meta";
-import { getRunCount, setRunCount } from "./utils";
 
 class App extends Component<{}, AppContext> {
   private __mounted = false;
@@ -198,7 +198,6 @@ class App extends Component<{}, AppContext> {
   render() {
     return (
       <Context.Provider value={this.state}>
-        <Meta />
         <Background>
           <Fragment>
             <Header />
