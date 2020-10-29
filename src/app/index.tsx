@@ -17,6 +17,7 @@ import Button from "./Button";
 import Header from "./Header";
 import Content from "./Content";
 import Meta from "./Meta";
+import { getRunCount, setRunCount } from "./utils";
 
 class App extends Component<{}, AppContext> {
   private __mounted = false;
@@ -92,8 +93,11 @@ class App extends Component<{}, AppContext> {
             this.nextFrame
           );
           this.initWakeLock();
+          this.increaseRunCount();
         }, PRE_ACTIVE_DELAY)
     );
+
+  increaseRunCount = () => setRunCount(getRunCount() + 1);
 
   initWakeLock = async () => {
     // @todo: remove @ts-ignore: wakeLock is a new API and now doesn't present in lib.dom.d.ts)

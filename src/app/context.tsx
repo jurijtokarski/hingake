@@ -54,3 +54,7 @@ export interface AppContext extends AppContextValues {
 }
 
 export const Context = createContext<AppContext>(DEFAULT_CONTEXT_VALUES);
+
+export const NEXT_CHECK_STORAGE_KEY = "next_check";
+
+export const RUN_COUNT_STORAGE_KEY = "run_count";

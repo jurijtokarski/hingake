@@ -1170,6 +1170,11 @@
   resolved "https://registry.yarnpkg.com/@jurijtokarski/calc/-/calc-0.7.0.tgz#36eaee2fafdc0847b56731b8fd50af6e91c473c1"
   integrity sha512-keaWM42mIIhnoHpc+5Y8CyuuMIOa9Q216CgcSQWQnN4H/1YbenLEt9lbyHf/NmEdjf+2lF3Hqz5iVZ81C8GvPQ==
 
+"@jurijtokarski/times@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@jurijtokarski/times/-/times-0.7.0.tgz#8d43ed3160b07b9d6830669b76d8973d43beecd1"
+  integrity sha512-sB09LM1wkTHb2y4qD8A5lw6HtLRQwUU/07X17qquvdB25lZdcSU6vl9cukt3fX+4SMbyrB90s6KWl45RZfoqVA==
+
 "@npmcli/move-file@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@npmcli/move-file/-/move-file-1.0.1.tgz#de103070dac0f48ce49cf6693c23af59c0f70464"
