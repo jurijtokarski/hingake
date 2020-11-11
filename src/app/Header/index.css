@@ -51,3 +51,29 @@
 .header__close:after {
   transform: rotate(-45deg);
 }
+
+.header__sounds {
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 0.2rem 0.4rem;
+  margin-left: 0.5rem;
+  outline: none;
+}
+
+.header__sounds:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.header__sounds:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.header__sounds--enabled {
+  color: #fff;
+}
+
+.header__sounds--disabled {
+  color: #bbb;
+  text-decoration: line-through;
+}

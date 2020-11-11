@@ -43,7 +43,8 @@ export const DEFAULT_CONTEXT_VALUES = {
   activationTime: 0,
   frame: 0,
   progress: 0,
-  startTime: 0
+  startTime: 0,
+  isAudioEnabled: false
 };
 
 export type AppContextValues = typeof DEFAULT_CONTEXT_VALUES;
@@ -51,6 +52,7 @@ export type AppContextValues = typeof DEFAULT_CONTEXT_VALUES;
 export interface AppContext extends AppContextValues {
   start?: () => void;
   stop?: () => void;
+  toggleAudioStatus?: () => void;
 }
 
 export const Context = createContext<AppContext>(DEFAULT_CONTEXT_VALUES);
@@ -58,3 +60,5 @@ export const Context = createContext<AppContext>(DEFAULT_CONTEXT_VALUES);
 export const NEXT_CHECK_STORAGE_KEY = "next_check";
 
 export const RUN_COUNT_STORAGE_KEY = "run_count";
+
+export const AUDIO_STATUS_STORAGE_KEY = "audio_status";

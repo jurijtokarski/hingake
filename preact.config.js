@@ -20,6 +20,11 @@ export default {
             }
         });
 
+        config.module.rules.push({
+            test: /\.m4a$/,
+            loader: 'file-loader'
+        });
+
         // Use any `index` file, not just index.js
         config.resolve.alias["preact-cli-entrypoint"] = resolve(
             process.cwd(),

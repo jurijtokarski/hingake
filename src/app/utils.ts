@@ -1,6 +1,17 @@
 import { parse } from "querystring";
+import { round } from "@jurijtokarski/calc";
 
-import { NEXT_CHECK_STORAGE_KEY, RUN_COUNT_STORAGE_KEY, Step } from "./context";
+import {
+  AUDIO_STATUS_STORAGE_KEY,
+  NEXT_CHECK_STORAGE_KEY,
+  RUN_COUNT_STORAGE_KEY,
+  Step
+} from "./context";
+
+import inhaleAudioSrc from "../assets/sounds/inhale.m4a";
+import exhaleAudioSrc from "../assets/sounds/exhale.m4a";
+import pauseAudioSrc from "../assets/sounds/pause.m4a";
+import waitAudioSrc from "../assets/sounds/wait.m4a";
 
 export function easeInQuad(x: number): number {
   return x * x;
@@ -99,3 +110,123 @@ export const getRunCount = () => {
 export const setRunCount = (value: number) => {
   return saveNumberValueToStorage(RUN_COUNT_STORAGE_KEY, value);
 };
+
+export const getAudioStatus = () => {
+  return getNumberValueFromStorage(AUDIO_STATUS_STORAGE_KEY);
+};
+
+export const setAudioStatus = (value: number) => {
+  return saveNumberValueToStorage(AUDIO_STATUS_STORAGE_KEY, value);
+};
+
+export class Media {
+  private step = Step.WAIT;
+
+  private audios = {
+    [Step.EXHALE]: new Audio(exhaleAudioSrc),
+    [Step.INHALE]: new Audio(inhaleAudioSrc),
+    [Step.PAUSE]: new Audio(pauseAudioSrc),
+    [Step.WAIT]: new Audio(waitAudioSrc)
+  };
+
+  setStep(step: Step) {
+    this.step = step;
+  }
+
+  setEnabled(value: boolean) {
+    for (const key of Object.keys(this.audios) as Step[]) {
+      this.getInstanceByKey(key).muted = !value;
+    }
+  }
+
+  private getInstanceByKey(key: Step) {
+    return this.audios[key];
+  }
+
+  private getCurrentInstance() {
+    return this.getInstanceByKey(this.step);
+  }
+
+  private volumeFadeUp = (current: HTMLAudioElement) => {
+    const FADE_UP_DURATION = 1500;
+
+    function run() {
+      // eslint-disable-next-line @typescript-eslint/no-use-before-define
+      setTimeout(tick, FADE_UP_DURATION / 100);
+    }
+
+    function tick() {
+      const volume = current.volume;
+
+      if (volume >= 1) {
+        return;
+      }
+
+      current.volume = round((volume * 100 + 1) / 100, 3);
+
+      run();
+    }
+
+    run();
+  };
+
+  private volumeFadeDown = (current: HTMLAudioElement) => {
+    const FADE_DOWN_DURATION = 1000;
+
+    function run() {
+      // eslint-disable-next-line @typescript-eslint/no-use-before-define
+      setTimeout(tick, FADE_DOWN_DURATION / 100);
+    }
+
+    function tick() {
+      const volume = current.volume;
+
+      if (volume <= 0) {
+        current.pause();
+        return;
+      }
+
+      current.volume = round((volume * 100 - 1) / 100, 3);
+
+      run();
+    }
+
+    run();
+  };
+
+  stopCurrent() {
+    const current = this.getCurrentInstance();
+
+    this.volumeFadeDown(current);
+  }
+
+  playCurrent() {
+    const current = this.getCurrentInstance();
+
+    current.volume = 0;
+    current.currentTime = 0;
+    current.play();
+
+    this.volumeFadeUp(current);
+  }
+
+  setStepAndPlay(step: Step) {
+    this.stopCurrent();
+    this.setStep(step);
+    this.playCurrent();
+  }
+
+  reset(key: Step) {
+    const instance = this.getInstanceByKey(key);
+
+    instance.pause();
+    instance.currentTime = 0;
+    instance.volume = 0;
+  }
+
+  resetAll() {
+    for (const key of Object.keys(this.audios) as Step[]) {
+      this.reset(key);
+    }
+  }
+}
