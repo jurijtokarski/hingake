@@ -1,8 +1,8 @@
 import { round } from "@jurijtokarski/calc";
 import { FunctionComponent, h } from "preact";
-import { useContext, useEffect, useState } from "preact/hooks";
+import { useContext, useEffect, useMemo, useState } from "preact/hooks";
 
-import { Context } from "../context";
+import { Context, State } from "../context";
 import { getScaleByStepProgress } from "../utils";
 
 import "./index.css";
@@ -15,6 +15,13 @@ const Animation: FunctionComponent = () => {
     setTimeout(() => setVisible(true), 100);
   }, []);
 
+  useEffect(() => {
+    if (state === State.POST_ACTIVE) {
+      setTimeout(() => setVisible(false), 0);
+      setTimeout(() => setVisible(true), 20);
+    }
+  }, [state]);
+
   const scale = round((getScaleByStepProgress(step, progress) + 1.5) * 7, 4);
   const size = `${scale}rem`;
 
@@ -23,11 +30,15 @@ const Animation: FunctionComponent = () => {
     height: size
   };
 
-  const parts = [];
+  const parts = useMemo(() => {
+    const list = [];
 
-  for (let i = 0; i < 360; i += 30) {
-    parts.push(<use href="#petal" transform={`rotate(${i} 50 50)`} />);
-  }
+    for (let i = 0; i < 360; i += 30) {
+      list.push(<use href="#petal" transform={`rotate(${i} 50 50)`} />);
+    }
+
+    return list;
+  }, []);
 
   return (
     <svg
