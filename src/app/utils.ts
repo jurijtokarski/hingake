@@ -119,14 +119,18 @@ export const setAudioStatus = (value: number) => {
   return saveNumberValueToStorage(AUDIO_STATUS_STORAGE_KEY, value);
 };
 
+const createAudio = (src: string) => {
+  return isServer() ? null : new window.Audio(src);
+};
+
 export class Media {
   private step = Step.WAIT;
 
   private audios = {
-    [Step.EXHALE]: new Audio(exhaleAudioSrc),
-    [Step.INHALE]: new Audio(inhaleAudioSrc),
-    [Step.PAUSE]: new Audio(pauseAudioSrc),
-    [Step.WAIT]: new Audio(waitAudioSrc)
+    [Step.EXHALE]: createAudio(exhaleAudioSrc),
+    [Step.INHALE]: createAudio(inhaleAudioSrc),
+    [Step.PAUSE]: createAudio(pauseAudioSrc),
+    [Step.WAIT]: createAudio(waitAudioSrc)
   };
 
   setStep(step: Step) {
@@ -135,7 +139,13 @@ export class Media {
 
   setEnabled(value: boolean) {
     for (const key of Object.keys(this.audios) as Step[]) {
-      this.getInstanceByKey(key).muted = !value;
+      const instance = this.getInstanceByKey(key);
+
+      if (!instance) {
+        continue;
+      }
+
+      instance.muted = !value;
     }
   }
 
@@ -148,7 +158,7 @@ export class Media {
   }
 
   private volumeFadeUp = (current: HTMLAudioElement) => {
-    const FADE_UP_DURATION = 1500;
+    const FADE_UP_DURATION = 200;
 
     function run() {
       // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -171,7 +181,7 @@ export class Media {
   };
 
   private volumeFadeDown = (current: HTMLAudioElement) => {
-    const FADE_DOWN_DURATION = 1000;
+    const FADE_DOWN_DURATION = 1500;
 
     function run() {
       // eslint-disable-next-line @typescript-eslint/no-use-before-define
@@ -197,11 +207,19 @@ export class Media {
   stopCurrent() {
     const current = this.getCurrentInstance();
 
+    if (!current) {
+      return;
+    }
+
     this.volumeFadeDown(current);
   }
 
   playCurrent() {
     const current = this.getCurrentInstance();
+
+    if (!current) {
+      return;
+    }
 
     current.volume = 0;
     current.currentTime = 0;
@@ -218,6 +236,10 @@ export class Media {
 
   reset(key: Step) {
     const instance = this.getInstanceByKey(key);
+
+    if (!instance) {
+      return;
+    }
 
     instance.pause();
     instance.currentTime = 0;
