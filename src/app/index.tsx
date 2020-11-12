@@ -49,8 +49,6 @@ class App extends Component<{}, AppContext> {
 
   componentWillUnmount() {
     this.setMounted(false);
-    this.media.resetAll();
-    this.deinitializeKeyPress();
   }
 
   isMounted = () => this._mounted;
@@ -77,27 +75,6 @@ class App extends Component<{}, AppContext> {
     );
 
   toggleAudioStatus = () => this.setAudioStatus(!this.state.isAudioEnabled);
-
-  initializeKeyPress = () => {
-    document.addEventListener("keypress", this.handleKeypress);
-  };
-
-  deinitializeKeyPress = () => {
-    document.removeEventListener("keypress", this.handleKeypress);
-  };
-
-  handleKeypress = (e: KeyboardEvent) => {
-    if (e.which !== 32) {
-      // 32 is space
-      return;
-    }
-
-    if (this.state.state === State.ACTIVE) {
-      return this.handleStop();
-    }
-
-    return this.handleStart();
-  };
 
   requestAnimationFrame = (fn: FrameRequestCallback) =>
     window.requestAnimationFrame(fn) || setTimeout(fn, 1000 / 60);
