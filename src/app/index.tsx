@@ -44,9 +44,7 @@ class App extends Component<{}, AppContext> {
 
   componentDidMount() {
     this.setMounted(true);
-    this.initializeKeyPress();
-    this.checkStorageConfigs();
-    this.media.resetAll();
+    this.checkAudioStatus();
   }
 
   componentWillUnmount() {
@@ -59,8 +57,12 @@ class App extends Component<{}, AppContext> {
 
   setMounted = (value: boolean) => (this._mounted = value);
 
-  checkStorageConfigs = () => {
-    this.setAudioStatus(Boolean(getAudioStatus() || 0));
+  checkAudioStatus = () => {
+    const audioStatus = Boolean(getAudioStatus() || 0);
+
+    if (audioStatus) {
+      this.setAudioStatus(true);
+    }
   };
 
   setAudioStatus = (isAudioEnabled: boolean) =>
@@ -109,7 +111,7 @@ class App extends Component<{}, AppContext> {
       },
       () => {
         this.releaseWakeLock();
-        this.media.stopCurrent();
+        this.media.resetAll();
       }
     );
   };

@@ -1,5 +1,4 @@
 import { parse } from "querystring";
-import { round } from "@jurijtokarski/calc";
 
 import {
   AUDIO_STATUS_STORAGE_KEY,
@@ -146,6 +145,7 @@ export class Media {
       }
 
       instance.muted = !value;
+      instance.volume = Number(value);
     }
   }
 
@@ -157,63 +157,6 @@ export class Media {
     return this.getInstanceByKey(this.step);
   }
 
-  private volumeFadeUp = (current: HTMLAudioElement) => {
-    const FADE_UP_DURATION = 200;
-
-    function run() {
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
-      setTimeout(tick, FADE_UP_DURATION / 100);
-    }
-
-    function tick() {
-      const volume = current.volume;
-
-      if (volume >= 1) {
-        return;
-      }
-
-      current.volume = round((volume * 100 + 1) / 100, 3);
-
-      run();
-    }
-
-    run();
-  };
-
-  private volumeFadeDown = (current: HTMLAudioElement) => {
-    const FADE_DOWN_DURATION = 1500;
-
-    function run() {
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
-      setTimeout(tick, FADE_DOWN_DURATION / 100);
-    }
-
-    function tick() {
-      const volume = current.volume;
-
-      if (volume <= 0) {
-        current.pause();
-        return;
-      }
-
-      current.volume = round((volume * 100 - 1) / 100, 3);
-
-      run();
-    }
-
-    run();
-  };
-
-  stopCurrent() {
-    const current = this.getCurrentInstance();
-
-    if (!current) {
-      return;
-    }
-
-    this.volumeFadeDown(current);
-  }
-
   playCurrent() {
     const current = this.getCurrentInstance();
 
@@ -221,15 +164,21 @@ export class Media {
       return;
     }
 
-    current.volume = 0;
-    current.currentTime = 0;
-    current.play();
+    function handleEnd() {
+      if (!current) {
+        return;
+      }
 
-    this.volumeFadeUp(current);
+      current.pause();
+      current.currentTime = 0;
+      current.removeEventListener("ended", handleEnd);
+    }
+
+    current.play();
+    current.addEventListener("ended", handleEnd);
   }
 
   setStepAndPlay(step: Step) {
-    this.stopCurrent();
     this.setStep(step);
     this.playCurrent();
   }
@@ -243,7 +192,6 @@ export class Media {
 
     instance.pause();
     instance.currentTime = 0;
-    instance.volume = 0;
   }
 
   resetAll() {
