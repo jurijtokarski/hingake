@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<title><% preact.title %></title>
+    <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="msapplication-TileColor" content="#514A9D">
 		<meta name="mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<link rel="apple-touch-icon" href="/assets/icons/512_bg.png">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    
     <link href="/assets/splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
     <link href="/assets/splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
     <link href="/assets/splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
@@ -18,12 +20,36 @@
     <link href="/assets/splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
     <link href="/assets/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
     <link href="/assets/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-    <meta name="apple-mobile-web-app-title" content="Hingake" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-touch-fullscreen" content="yes" />
-    <meta name="msapplication-TileColor" content="#514A9D">
+
+    <link rel="apple-touch-icon" href="/assets/icons/512_bg.png">
+    <link rel="shortcut icon" sizes="192x192" href="/assets/favicon.ico" />
+    
+    <title><% preact.title %></title>
+    
+    <meta name="twitter:title" content="<% preact.title %>" />
+    <meta name="og:title" content="<% preact.title %>" />
+    <meta name="application-name" content="<% preact.title %>" />
+    <meta name="apple-mobile-web-app-title" content="<% preact.title %>" />
+    <meta name="og:site_name" content="<% preact.title %>" />
+
+    <meta name="description" content="Breath, relax & meditate." />
+    <meta name="twitter:description" content="Breath, relax & meditate." />
+    <meta name="og:description" content="Breath, relax & meditate." />
+
+    <meta name="twitter:url" content="https://hingake.app/" />
+    <meta name="og:url" content="https://hingake.app/" />
+
+    <meta name="twitter:image" content="/assets/mantle.jpg" />
+    <meta name="og:image"content="/assets/mantle.jpg" />
+    <meta name="og:image:width"content="1920" />
+    <meta name="og:image:height"content="1080" />
+
+    <meta name="twitter:site" content="@varstatt" />
+    <meta name="twitter:creator" content="@jurijtokarski" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="og:type" content="website" />
+
 		<% preact.headEnd %>
 	</head>
 	<body>
