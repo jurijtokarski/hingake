@@ -1,7 +1,7 @@
 {
   "name": "Hingake",
   "short_name": "Hingake",
-  "start_url": "/?source=pwa",
+  "start_url": "./?source=pwa",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#514A9D",
@@ -16,6 +16,12 @@
       "src": "/assets/icons/512.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src": "/icons/192_bg.png",
+      "sizes": "1962192",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
