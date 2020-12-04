@@ -44,6 +44,7 @@ export const DEFAULT_CONTEXT_VALUES = {
   frame: 0,
   progress: 0,
   startTime: 0,
+  count: 0,
   isAudioEnabled: false
 };
 

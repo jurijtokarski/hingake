@@ -15,14 +15,15 @@ import {
   getRunCount,
   setRunCount,
   Media,
-  setAudioStatus
+  setAudioStatus,
+  isServer
 } from "./utils";
 
 import Background from "./Background";
 import Animation from "./Animation";
 import Info from "./Info";
-import Button from "./Button";
-import Header from "./Header";
+import Buttons from "./Buttons";
+import TopBar from "./TopBar";
 import Content from "./Content";
 
 class App extends Component<{}, AppContext> {
@@ -61,6 +62,23 @@ class App extends Component<{}, AppContext> {
     if (audioStatus) {
       this.setAudioStatus(true);
     }
+
+    // Fix for Safari: play/pause audio to unlock them for future usage
+    this.unlockAudio();
+  };
+
+  unlockAudio = () => {
+    if (isServer()) {
+      return;
+    }
+
+    const unlockListener = () => {
+      this.media.unlock();
+      document.body.removeEventListener("click", unlockListener);
+    };
+
+    document.body.addEventListener("click", unlockListener);
+    document.body.addEventListener("touchstart", unlockListener);
   };
 
   setAudioStatus = (isAudioEnabled: boolean) =>
@@ -84,7 +102,9 @@ class App extends Component<{}, AppContext> {
       {
         ...DEFAULT_CONTEXT_VALUES,
         state: State.POST_ACTIVE,
-        activationTime: this.state.activationTime
+        isAudioEnabled: this.state.isAudioEnabled,
+        activationTime: this.state.activationTime,
+        count: this.state.count
       },
       () => {
         this.releaseWakeLock();
@@ -103,7 +123,8 @@ class App extends Component<{}, AppContext> {
           this.setState(
             {
               state: State.ACTIVE,
-              activationTime: Date.now()
+              activationTime: Date.now(),
+              count: 0
             },
             this.nextFrame
           );
@@ -225,6 +246,16 @@ class App extends Component<{}, AppContext> {
     }
 
     this.media.setStepAndPlay(newStep);
+
+    if (newStep === Step.INHALE) {
+      this.setState({
+        count: this.state.count + 1
+      });
+    }
+
+    if (newStep === Step.INHALE && this.state.isAudioEnabled) {
+      this.setAudioStatus(true);
+    }
   };
 
   render() {
@@ -232,12 +263,12 @@ class App extends Component<{}, AppContext> {
       <Context.Provider value={this.state}>
         <Background>
           <Fragment>
-            <Header />
+            <TopBar />
             <Content>
               <Fragment>
                 <Info />
                 <Animation />
-                <Button />
+                <Buttons />
               </Fragment>
             </Content>
           </Fragment>

@@ -1,6 +1,6 @@
 import { getDaysInMS } from "@jurijtokarski/times";
 import { h, FunctionComponent, Fragment } from "preact";
-import { useContext, useEffect, useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 
 import "./index.css";
 
@@ -12,12 +12,9 @@ import {
   setNextCheckTimestamp
 } from "../utils";
 
-import { Context } from "../context";
+import IOSInstall from "./IOSInstall";
 
-import IOSInstall from "./Install";
-
-const Header: FunctionComponent = () => {
-  const { isAudioEnabled, toggleAudioStatus } = useContext(Context);
+const TopBar: FunctionComponent = () => {
   const [isVisible, setVisible] = useState(false);
   const [isIOSInstallVisible, setIOSInstallVisible] = useState(false);
 
@@ -47,18 +44,7 @@ const Header: FunctionComponent = () => {
   }, [runCount, nextCheck, isIOSDevice, isStandalone]);
 
   if (!isVisible) {
-    return (
-      <div className="header">
-        <button
-          className={`header__sounds header__sounds--${
-            isAudioEnabled ? "enabled" : "disabled"
-          }`}
-          onClick={toggleAudioStatus}
-        >
-          Sounds
-        </button>
-      </div>
-    );
+    return null;
   }
 
   const hideInstallBar = () => {
@@ -87,4 +73,4 @@ const Header: FunctionComponent = () => {
   );
 };
 
-export default Header;
+export default TopBar;

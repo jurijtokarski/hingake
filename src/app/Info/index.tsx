@@ -15,8 +15,23 @@ function formatTime(seconds: number) {
     .join(":");
 }
 
+function formatCount(count: number) {
+  return count ? `${count} times` : "";
+}
+
+function formatPostActive(seconds: number, count: number) {
+  const duration = formatTime(seconds);
+  const times = formatCount(count);
+
+  if (times) {
+    return `${duration}, ${times}`;
+  }
+
+  return duration;
+}
+
 const Info: FunctionComponent = () => {
-  const { state, step, activationTime } = useContext(Context);
+  const { state, step, count, activationTime } = useContext(Context);
   const [isVisible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -30,7 +45,7 @@ const Info: FunctionComponent = () => {
 
     switch (state) {
       case State.POST_ACTIVE:
-        return formatTime(seconds);
+        return formatPostActive(seconds, count);
       case State.PRE_ACTIVE:
         return "Prepare…";
       case State.ACTIVE:

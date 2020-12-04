@@ -132,6 +132,20 @@ export class Media {
     [Step.WAIT]: createAudio(waitAudioSrc)
   };
 
+  unlock() {
+    for (const key of Object.keys(this.audios) as Step[]) {
+      const instance = this.getInstanceByKey(key);
+
+      if (!instance) {
+        return;
+      }
+
+      instance.play();
+      instance.pause();
+      instance.currentTime = 0;
+    }
+  }
+
   setStep(step: Step) {
     this.step = step;
   }
