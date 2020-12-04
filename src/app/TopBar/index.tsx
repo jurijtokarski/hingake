@@ -57,12 +57,12 @@ const TopBar: FunctionComponent = () => {
 
   return (
     <Fragment>
-      <div className="header">
+      <div className="topbar">
         Use Hingake offline
-        <button className="header__install" onClick={toggleIOSInstallVisible}>
+        <button className="topbar__install" onClick={toggleIOSInstallVisible}>
           Install
         </button>
-        <button className="header__close" onClick={hideInstallBar} />
+        <button className="topbar__close" onClick={hideInstallBar} />
       </div>
 
       <IOSInstall
