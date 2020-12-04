@@ -34,7 +34,7 @@ const Buttons: FunctionComponent = () => {
       <button
         className={`button button--small ${
           isAudioEnabled ? "button--enabled" : "button--disabled"
-        }`}
+        } ${isVisible ? "button--visible" : "button--hidden"}`}
         onClick={toggleAudioStatus}
       >
         Sounds

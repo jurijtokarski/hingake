@@ -72,6 +72,10 @@
   opacity: 1;
 }
 
+.button--small.button--hidden {
+  transform: translateY(230%) scale(0.9);
+}
+
 .button--disabled {
   text-decoration: line-through;
   opacity: 0.8;
