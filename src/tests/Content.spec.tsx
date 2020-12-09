@@ -1,11 +1,11 @@
 import { h } from "preact";
 import { shallow, ShallowWrapper } from "enzyme";
 
-import Component from "../app/Background";
+import Component from "../app/Content";
 
 const ChildrenMock = () => <div></div>;
 
-describe("Background", () => {
+describe("Content", () => {
   let component: ShallowWrapper;
 
   beforeAll(() => {
@@ -25,6 +25,6 @@ describe("Background", () => {
   });
 
   test("renders className", () => {
-    expect(component.prop("className")).toBe("background");
+    expect(component.prop("className")).toBe("content");
   });
 });
