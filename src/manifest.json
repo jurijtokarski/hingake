@@ -4,22 +4,22 @@
   "start_url": "./?source=pwa",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#514A9D",
+  "background_color": "#FFF",
   "theme_color": "#514A9D",
   "icons": [
     {
-      "src": "/assets/icons/192.png",
+      "src": "/assets/icons/192_alpha.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/assets/icons/512.png",
+      "src": "/assets/icons/512_alpha.png",
       "type": "image/png",
       "sizes": "512x512"
     },
     {
-      "src": "/icons/192_bg.png",
-      "sizes": "1962192",
+      "src": "/icons/192.png",
+      "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     }
