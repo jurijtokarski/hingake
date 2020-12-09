@@ -75,6 +75,7 @@ class App extends Component<{}, AppContext> {
     const unlockListener = () => {
       this.media.unlock();
       document.body.removeEventListener("click", unlockListener);
+      document.body.removeEventListener("touchstart", unlockListener);
     };
 
     document.body.addEventListener("click", unlockListener);
