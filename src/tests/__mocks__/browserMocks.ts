@@ -1,11 +1,12 @@
 const localStorageMock = (function() {
-  let store = {
+  let store: { [key: string]: string } = {
     mock: "100"
   };
 
   return {
-    getItem: key => store[key] || null,
-    setItem: (key, value) => (store[key] = value.toString()),
+    getItem: (key: string) => store[key] || null,
+    setItem: (key: string, value: string | number) =>
+      (store[key] = value.toString()),
     clear: () => (store = {})
   };
 })();
@@ -24,9 +25,10 @@ Object.defineProperty(window.navigator, "userAgent", {
   value: "test"
 });
 
-export const mockedAudios = {};
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const mockedAudios: { [key: string]: Record<string, any> } = {};
 
-export function AudioMock(src) {
+export function AudioMock(src: string) {
   const audio = {
     wasPlayed: false,
     wasPaused: false,
@@ -48,7 +50,7 @@ export function AudioMock(src) {
       this.volumeWasSet = true;
       this.__volume = value;
     },
-    __mutedolume: 0,
+    __muted: 0,
     mutedWasSet: false,
     get muted() {
       return this.__muted;
@@ -62,18 +64,18 @@ export function AudioMock(src) {
     listeners: {
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       ended: () => {}
-    },
+    } as { [key: string]: Function },
     play() {
       this.wasPlayed = true;
     },
     pause() {
       this.wasPaused = true;
     },
-    addEventListener(key, fn) {
+    addEventListener(key: string, fn: Function) {
       this.addedEventListener = true;
       this.listeners[key] = fn;
     },
-    removeEventListener(key) {
+    removeEventListener(key: string) {
       this.removedEventListener = true;
       delete this.listeners[key];
     }
