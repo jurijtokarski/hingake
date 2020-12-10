@@ -1,4 +1,5 @@
 import { parse } from "querystring";
+import { round } from "@jurijtokarski/calc";
 
 import {
   AUDIO_STATUS_STORAGE_KEY,
@@ -30,10 +31,10 @@ export function getScaleByStepProgress(step: Step, progress: number) {
   }
 
   if (step === Step.EXHALE) {
-    return easeInQuad(1 - 1 * progress); // from 1 to 0
+    return round(easeInQuad(1 - 1 * progress), 6); // from 1 to 0
   }
 
-  return easeOutQuad(1 * progress); // from 0 to 1
+  return round(easeOutQuad(1 * progress), 6); // from 0 to 1
 }
 
 export const isServer = () => typeof window === "undefined";
@@ -118,7 +119,7 @@ export const setAudioStatus = (value: number) => {
   return saveNumberValueToStorage(AUDIO_STATUS_STORAGE_KEY, value);
 };
 
-const createAudio = (src: string) => {
+export const createAudio = (src: string) => {
   return isServer() ? null : new window.Audio(src);
 };
 
