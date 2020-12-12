@@ -1,19 +1,31 @@
-# breath
+# [Hingake](https://hingake.vercel.app)
 
-## CLI Commands
+Simplest PWA to allow people breath, relax & meditate.
 
--   `npm install`: Installs dependencies
+## Run locally
 
--   `npm run dev`: Run a development, HMR server
+Just clone the repo, install dependencies and run `npm run dev` or `yarn dev`.
 
--   `npm run serve`: Run a production-like server
+Project bootstrapped with [Preact CLI](https://github.com/developit/preact-cli/blob/master/README.md), so you can use all the features of CLI.
 
--   `npm run build`: Production-ready build
+### CLI Commands
 
--   `npm run lint`: Pass TypeScript files using TSLint
+- `npm install`: Installs dependencies
 
--   `npm run test`: Run Jest and Enzyme with
-    [`enzyme-adapter-preact-pure`](https://github.com/preactjs/enzyme-adapter-preact-pure) for
-    your tests
+- `npm run dev`: Run a development, HMR server
+
+- `npm run serve`: Run a production-like server
+
+- `npm run build`: Production-ready build
+
+- `npm run lint`: Pass TypeScript files using TSLint
+
+- `npm run test`: Run Jest and Enzyme with
+  [`enzyme-adapter-preact-pure`](https://github.com/preactjs/enzyme-adapter-preact-pure) for
+  your tests
 
 For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).
+
+## License
+
+[MIT](https://github.com/jurijtokarski/hingake/blob/master/LICENSE.md)
