@@ -24,4 +24,4 @@ We use [GitHub issues](https://github.com/jurijtokarski/hingake/issues) to track
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under its [MIT license](https://github.com/jurijtokarski/hingake/blob/master/LICENSE).
+By contributing, you agree that your contributions will be licensed under its [MIT license](https://github.com/jurijtokarski/hingake/blob/master/LICENSE.md).
