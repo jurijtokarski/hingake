@@ -1,4 +1,4 @@
-# [Hingake](https://hingake.vercel.app)
+# [Hingake](https://hingake.app)
 
 Simplest PWA to allow people breath, relax & meditate.
 
