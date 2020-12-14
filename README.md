@@ -2,6 +2,8 @@
 
 Simplest PWA to allow people breath, relax & meditate — helps to breathe with [4:7:8 technique](https://www.healthline.com/health/4-7-8-breathing).
 
+![](https://hingake.app/opengraph.png "")
+
 ## Run locally
 
 Just clone the repo, install dependencies and run `npm run dev` or `yarn dev`.
