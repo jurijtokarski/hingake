@@ -1,8 +1,8 @@
+![](https://hingake.app/opengraph.png "")
+
 # [Hingake](https://hingake.app)
 
 Simplest PWA to allow people breath, relax & meditate — helps to breathe with [4:7:8 technique](https://www.healthline.com/health/4-7-8-breathing).
-
-![](https://hingake.app/opengraph.png "")
 
 | ![](https://user-images.githubusercontent.com/3917470/102087946-86688280-3e1a-11eb-9cc4-afe87e68eeea.png)      | ![](https://user-images.githubusercontent.com/3917470/102087950-8799af80-3e1a-11eb-8113-dda2a61e3bdb.png) | ![<](https://user-images.githubusercontent.com/3917470/102087956-8799af80-3e1a-11eb-9909-593e24b380b9.png) |
 | ------------- |:-------------:| -----:|
