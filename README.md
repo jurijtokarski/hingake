@@ -20,17 +20,17 @@ Project bootstrapped with [Preact CLI](https://github.com/developit/preact-cli/b
 
 ### CLI Commands
 
-- `npm install`: Installs dependencies
+- `yarn` or `npm install`: Installs dependencies
 
-- `npm run dev`: Run a development, HMR server
+- `dev`: Run a development, HMR server
 
-- `npm run serve`: Run a production-like server
+- `serve`: Run a production-like server
 
-- `npm run build`: Production-ready build
+- `build`: Production-ready build
 
-- `npm run lint`: Pass TypeScript files using TSLint
+- `lint`: Pass TypeScript files using TSLint
 
-- `npm run test`: Run Jest and Enzyme with
+- `test`: Run Jest and Enzyme with
   [`enzyme-adapter-preact-pure`](https://github.com/preactjs/enzyme-adapter-preact-pure) for
   your tests
 
