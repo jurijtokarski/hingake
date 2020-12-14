@@ -1,6 +1,6 @@
 # [Hingake](https://hingake.app)
 
-Simplest PWA to allow people breath, relax & meditate.
+Simplest PWA to allow people breath, relax & meditate — helps to breathe with [4:7:8 technique](https://www.healthline.com/health/4-7-8-breathing).
 
 ## Run locally
 
