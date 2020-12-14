@@ -7,6 +7,11 @@ Simplest PWA to allow people breath, relax & meditate — helps to breathe with 
 | ![](https://user-images.githubusercontent.com/3917470/102087946-86688280-3e1a-11eb-9cc4-afe87e68eeea.png)      | ![](https://user-images.githubusercontent.com/3917470/102087950-8799af80-3e1a-11eb-8113-dda2a61e3bdb.png) | ![<](https://user-images.githubusercontent.com/3917470/102087956-8799af80-3e1a-11eb-9909-593e24b380b9.png) |
 | ------------- |:-------------:| -----:|
 
+## References
+
+- [MIT licence](https://github.com/jurijtokarski/hingake/blob/master/LICENSE.md)
+- [How to contribute](https://github.com/jurijtokarski/hingake/blob/master/CONTRIBUTING.md)
+
 ## Run locally
 
 Just clone the repo, install dependencies and run `npm run dev` or `yarn dev`.
@@ -30,7 +35,3 @@ Project bootstrapped with [Preact CLI](https://github.com/developit/preact-cli/b
   your tests
 
 For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).
-
-## License
-
-[MIT](https://github.com/jurijtokarski/hingake/blob/master/LICENSE.md)
