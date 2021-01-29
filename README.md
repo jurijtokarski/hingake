@@ -4,8 +4,8 @@
 
 Simplest web application to allow people quickly breath with [4:7:8 technique](https://www.healthline.com/health/4-7-8-breathing) and relax.
 
-| ![](https://user-images.githubusercontent.com/3917470/102087946-86688280-3e1a-11eb-9cc4-afe87e68eeea.png)      | ![](https://user-images.githubusercontent.com/3917470/102087950-8799af80-3e1a-11eb-8113-dda2a61e3bdb.png) | ![<](https://user-images.githubusercontent.com/3917470/102087956-8799af80-3e1a-11eb-9909-593e24b380b9.png) |
-| ------------- |:-------------:| -----:|
+![Hingake installed on iPhone](https://user-images.githubusercontent.com/3917470/106276443-43cefe00-6240-11eb-9b52-860130a871c0.png)
+![Hingake in browser and installed on desktop](https://user-images.githubusercontent.com/3917470/106276445-44679480-6240-11eb-88fe-0c9d84a51857.png)
 
 ## References
 
