@@ -1,8 +1,8 @@
-![](https://hingake.app/opengraph.png "")
+![](https://hingake.app/opengraph.png)
 
 # [Hingake](https://hingake.app)
 
-Simplest web application to allow people quickly breath with [4:7:8 technique](https://www.healthline.com/health/4-7-8-breathing) and relax.
+The simplest web application that does just one basic thing — helps using the [4:7:8 breathing technique](https://www.healthline.com/health/4-7-8-breathing). Once installed, start the session, adapt your breathing to the rhythm, and relax.
 
 ![Hingake installed on iPhone](https://user-images.githubusercontent.com/3917470/106276443-43cefe00-6240-11eb-9b52-860130a871c0.png)
 ![Hingake in browser and installed on desktop](https://user-images.githubusercontent.com/3917470/106276445-44679480-6240-11eb-88fe-0c9d84a51857.png)
