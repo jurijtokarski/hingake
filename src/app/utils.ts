@@ -58,7 +58,25 @@ export const getLocationQueryParams = () => {
 export const isIOS = () => /iphone|ipad|ipod/.test(getUserAgent());
 
 export const isInStandaloneMode = () => {
-  return getLocationQueryParams().source === "pwa";
+  if (getLocationQueryParams().source === "pwa") {
+    return true;
+  }
+
+  if (typeof window === "undefined") {
+    return true;
+  }
+
+  if (window.matchMedia("(display-mode: standalone)").matches) {
+    return true;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
+  if (window.navigator.standalone === true) {
+    return true;
+  }
+
+  return false;
 };
 
 export const getTitleByStep = (step: Step) => {

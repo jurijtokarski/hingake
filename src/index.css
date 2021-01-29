@@ -12,8 +12,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   position: fixed;
   overflow: hidden;
-  height: calc(100vh - calc(100vh - 100%));
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   top: 0;
   left: 0;
 }

@@ -11,6 +11,10 @@ const localStorageMock = (function() {
   };
 })();
 
+Object.defineProperty(window, "matchMedia", {
+  value: () => ({ matches: false })
+});
+
 Object.defineProperty(window, "localStorage", {
   value: localStorageMock
 });
