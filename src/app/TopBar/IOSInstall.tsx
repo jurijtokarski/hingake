@@ -2,6 +2,8 @@ import { h, FunctionComponent } from "preact";
 
 import "./ios-install.css";
 
+import FullWindow from "../FullWindow/FullWindow";
+
 interface IOSInstallProps {
   isVisible?: boolean;
   onClose: () => void;
@@ -11,14 +13,7 @@ const IOSInstall: FunctionComponent<IOSInstallProps> = ({
   isVisible,
   onClose
 }) => (
-  <div
-    className={`ios-install ${
-      isVisible ? "ios-install--visible" : "ios-install--hidden"
-    }`}
-  >
-    <button className="ios-install__close" onClick={onClose}>
-      Close
-    </button>
+  <FullWindow isVisible={isVisible} onClose={onClose}>
     <div className="ios-install__steps">
       <div className="ios-install__step">
         <p>1. Press the share button</p>
@@ -33,7 +28,7 @@ const IOSInstall: FunctionComponent<IOSInstallProps> = ({
         <img src="/assets/images/install_step3.png" />
       </div>
     </div>
-  </div>
+  </FullWindow>
 );
 
 export default IOSInstall;
