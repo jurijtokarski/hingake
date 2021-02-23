@@ -1,41 +1,4 @@
-.ios-install {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #514a9d;
-  z-index: 9999;
-  padding: 1rem;
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transform: translateY(-100%);
-  visibility: hidden;
-  transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.ios-install--visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.ios-install__close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: transparent;
-  border-radius: 1rem;
-  border: 1px solid #fff;
-  color: #fff;
-  padding: 0.2rem 0.4rem;
-}
-
 .ios-install__step {
-  color: #fff;
   font-size: 0.8rem;
   padding: 0.2rem 0;
 }
