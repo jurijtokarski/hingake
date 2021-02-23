@@ -11,14 +11,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transform: translateY(100%);
-  transition: all 0.2s ease-in;
+  transform: translateY(100%) scale(0.5);
+  opacity: 0;
+  transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
   padding: 0 0.5rem;
 }
 
 .full-window--visible {
   visibility: visible;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  opacity: 1;
 }
 
 .full-window__header,
@@ -28,6 +30,8 @@
 
 .full-window__header {
   width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
   height: auto;
   display: flex;
   flex-direction: row;
@@ -46,6 +50,8 @@
 
 .full-window__content {
   width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
   height: 100%;
   padding: 1rem;
   font-size: 1rem;
