@@ -1,0 +1,32 @@
+.about-content h1,
+.about-content h2,
+.about-content h3,
+.about-content p {
+  padding: 0.4rem 0 0.2rem 0;
+  margin: 0;
+  line-height: 1.43;
+}
+
+.about-content h1,
+.about-content h2,
+.about-content h3 {
+  font-weight: 600;
+}
+
+.about-content h1 {
+  font-size: 1rem;
+}
+
+.about-content h2 {
+  font-size: 0.9rem;
+}
+
+.about-content a {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid;
+}
+
+.about-content a:hover {
+  border-bottom: 0;
+}

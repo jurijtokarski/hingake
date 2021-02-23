@@ -10,7 +10,7 @@
 }
 
 .animation--active {
-  animation: opacityChange 4s ease-in-out infinite;
+  animation: opacityChange 19s ease-in-out infinite;
 }
 
 .animation path {
@@ -19,12 +19,19 @@
 
 @keyframes opacityChange {
   0% {
+    transform: translateY(0) scale(1) rotate(0);
     opacity: 1;
   }
-  50% {
+  21% {
+    transform: translateY(0) scale(1.6) rotate(180deg);
+    opacity: 0.4;
+  }
+  57% {
+    transform: translateY(0) scale(1.3) rotate(90deg);
     opacity: 0.8;
   }
   100% {
+    transform: translateY(0) scale(1) rotate(-180deg);
     opacity: 1;
   }
 }

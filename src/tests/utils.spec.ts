@@ -191,7 +191,7 @@ describe("Utils", () => {
     const map: [Step, string][] = [
       [Step.EXHALE, "Exhale"],
       [Step.INHALE, "Inhale"],
-      [Step.WAIT, "Wait"],
+      [Step.WAIT, "Hold"],
       [Step.PAUSE, "Wait"]
     ];
 

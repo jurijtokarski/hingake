@@ -88,6 +88,10 @@ export const getTitleByStep = (step: Step) => {
     return "Exhale…";
   }
 
+  if (step === Step.WAIT) {
+    return "Hold…";
+  }
+
   return "Wait…";
 };
 
