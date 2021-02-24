@@ -1,6 +1,6 @@
-![](https://hingake.app/opengraph.png)
+![](https://beta.hingake.app/opengraph.png)
 
-# [Hingake](https://hingake.app)
+# [Hingake](https://beta.hingake.app)
 
 The simplest web application that does just one basic thing — helps using the [4:7:8 breathing technique](https://www.medicalnewstoday.com/articles/324417). Once you have installed it, start the session, adapt your breathing to the rhythm, and relax.
 
@@ -8,8 +8,8 @@ The simplest web application that does just one basic thing — helps using the 
 
 ## References
 
-- [MIT licence](https://github.com/jurijtokarski/hingake/blob/master/LICENSE.md)
-- [How to contribute](https://github.com/jurijtokarski/hingake/blob/master/CONTRIBUTING.md)
+- [MIT licence](https://github.com/jurijtokarski/hingake/blob/1.0-beta/LICENSE.md)
+- [How to contribute](https://github.com/jurijtokarski/hingake/blob/1.0-beta/CONTRIBUTING.md)
 
 ## Run locally
 
