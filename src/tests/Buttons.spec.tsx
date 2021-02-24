@@ -56,20 +56,20 @@ describe("Buttons", () => {
   });
 
   test("renders className", () => {
-    expect(getComponent().find(".button.button--hidden").length).toBe(2);
+    expect(getComponent().find(".button.button--hidden").length).toBe(3);
 
     jest.runAllTimers();
 
     wrapper.update();
 
-    expect(getComponent().find(".button.button--visible").length).toBe(2);
+    expect(getComponent().find(".button.button--visible").length).toBe(3);
   });
 
   test("renders state className for first button", () => {
     expect(
       getComponent()
         .find(".button")
-        .first()
+        .at(1)
         .hasClass("button--init")
     ).toBe(true);
 
@@ -81,7 +81,7 @@ describe("Buttons", () => {
     expect(
       getComponent()
         .find(".button")
-        .first()
+        .at(1)
         .hasClass("button--pre_active")
     ).toBe(true);
   });
@@ -110,7 +110,7 @@ describe("Buttons", () => {
   test("calls start/stop on click", () => {
     getComponent()
       .find(".button")
-      .first()
+      .at(1)
       .simulate("click");
 
     expect(startMock).toHaveBeenCalledTimes(1);
@@ -123,7 +123,7 @@ describe("Buttons", () => {
 
     getComponent()
       .find(".button")
-      .first()
+      .at(1)
       .simulate("click");
 
     expect(startMock).toHaveBeenCalledTimes(1);

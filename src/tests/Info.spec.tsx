@@ -56,47 +56,6 @@ describe("Info", () => {
   });
 
   test("renders summary", () => {
-    expect(getComponent().text()).toBe("");
-
-    renderWrapper({
-      ...DEFAULT_CONTEXT_VALUES,
-      state: State.PRE_ACTIVE
-    });
-
-    expect(getComponent().text()).toContain("Prepare");
-
-    renderWrapper({
-      ...DEFAULT_CONTEXT_VALUES,
-      state: State.ACTIVE,
-      step: Step.INHALE
-    });
-
-    expect(getComponent().text()).toContain("Inhale");
-
-    renderWrapper({
-      ...DEFAULT_CONTEXT_VALUES,
-      state: State.ACTIVE,
-      step: Step.EXHALE
-    });
-
-    expect(getComponent().text()).toContain("Exhale");
-
-    renderWrapper({
-      ...DEFAULT_CONTEXT_VALUES,
-      state: State.ACTIVE,
-      step: Step.PAUSE
-    });
-
-    expect(getComponent().text()).toContain("Wait");
-
-    renderWrapper({
-      ...DEFAULT_CONTEXT_VALUES,
-      state: State.ACTIVE,
-      step: Step.WAIT
-    });
-
-    expect(getComponent().text()).toContain("Wait");
-
     renderWrapper({
       ...DEFAULT_CONTEXT_VALUES,
       state: State.POST_ACTIVE,
