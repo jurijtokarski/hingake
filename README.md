@@ -1,10 +1,9 @@
-![](https://hingake.app/opengraph.png)
-
 # [Hingake](https://hingake.app)
 
 The simplest web application that does just one basic thing — helps using the [4:7:8 breathing technique](https://www.medicalnewstoday.com/articles/324417). Once you have installed it, start the session, adapt your breathing to the rhythm, and relax.
 
-![Hingake installed on iPhone](https://user-images.githubusercontent.com/3917470/106276443-43cefe00-6240-11eb-9b52-860130a871c0.png)
+[![](https://user-images.githubusercontent.com/3917470/108977377-c48ae980-7688-11eb-95dd-f436f240e8e9.png)](https://hingake.app)
+[![](https://user-images.githubusercontent.com/3917470/108979887-66abd100-768b-11eb-9036-ff2b0541c0e1.png)](https://hingake.app)
 
 ## References
 
