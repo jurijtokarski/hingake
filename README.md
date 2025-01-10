@@ -1,4 +1,4 @@
-![Breathing App](https://breathing-app-six.vercel.app/opengraph.pn)
+![Breathing App](https://breathing-app-six.vercel.app/opengraph.png)
 
 # [Breathing App](https://breathing-app-six.vercel.app)
 
