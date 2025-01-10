@@ -1,11 +1,13 @@
-# [Hingake](https://hingake.app)
+![Breathing App](https://breathing-app-six.vercel.app/opengraph.pn)
+
+# [Breathing App](https://breathing-app-six.vercel.app)
 
 The simplest web application that does just one basic thing — helps using the [4:7:8 breathing technique](https://www.medicalnewstoday.com/articles/324417). Once you have installed it, start the session, adapt your breathing to the rhythm, and relax.
 
 ## References
 
-- [MIT licence](https://github.com/jurijtokarski/hingake/blob/master/LICENSE.md)
-- [How to contribute](https://github.com/jurijtokarski/hingake/blob/master/CONTRIBUTING.md)
+- [MIT licence](https://github.com/jurijtokarski/breathing-app/blob/master/LICENSE.md)
+- [How to contribute](https://github.com/jurijtokarski/breathing-app/blob/master/CONTRIBUTING.md)
 
 ## Run locally
 
