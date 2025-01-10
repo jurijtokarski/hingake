@@ -1,6 +1,6 @@
 {
-  "name": "Hingake",
-  "short_name": "Hingake",
+  "name": "Breathing",
+  "short_name": "Breathing",
   "start_url": "./?source=pwa",
   "display": "standalone",
   "orientation": "portrait",
